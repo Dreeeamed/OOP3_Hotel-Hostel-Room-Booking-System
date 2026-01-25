@@ -10,4 +10,4 @@ public class SuiteRoom extends Room {
     }
 
     @Override public String getType() { return "Standard"; }
-} // сщысsf
+} // сщысsffg
