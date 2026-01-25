@@ -7,7 +7,7 @@ public class Guest {
     //DEFAULT CONSTRUCTOR
     public Guest() {
         this.id = 0;
-    } //Etot Part useless tbh
+    } //Etot Part useless tbh, no ok
 
     //PARAMETER CONSTRUCTOR
     public Guest(String fullName, String email) {
