@@ -1,1 +1,2 @@
 # Assik_3
+# ABDULLAKH, BOLATBEK
