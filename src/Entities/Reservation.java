@@ -16,7 +16,7 @@ public class Reservation {
         setCheckInDate(checkInDate);
     }
 
-    // ENCAPSULATION OPYAT'
+    // ENCAPSULATION OPYAT'в
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
     public int getGuestId() { return guestId; }
