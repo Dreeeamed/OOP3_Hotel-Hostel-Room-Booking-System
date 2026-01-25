@@ -11,4 +11,3 @@ public class StandardRoom extends Room {
 
     @Override public String getType() { return "Standard"; }
 }
-
