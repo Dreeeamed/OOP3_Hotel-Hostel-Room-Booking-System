@@ -7,11 +7,11 @@ import java.sql.SQLException;
 public class DatabaseConnection {
 
     // Connection details
-    private static final String URL = "jdbc:postgresql://aws-1-ap-southeast-1.pooler.supabase.com:5432/postgres?sslmode=require";
-    private static final String USER = "postgres.trjrofabmvkrkxmvmhic";
+    private static final String URL = "jdbc:postgresql://aws-1-ap-southeast-2.pooler.supabase.com:5432/postgres?sslmode=require";
+    private static final String USER = "postgres.shioqqggimmyjrgjlaof";
 
     // MAKE SURE TO PUT YOUR ACTUAL PASSWORD HERE
-    private static final String PASSWORD = "ThisIsTheBigBlack";
+    private static final String PASSWORD = "ThisIsBigBlack2000!";
 
     private DatabaseConnection() {
         // Private constructor to prevent instantiation
