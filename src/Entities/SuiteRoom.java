@@ -9,5 +9,5 @@ public class SuiteRoom extends Room {
         super(id, roomNumber, floor, price, isAvailable);
     }
 
-    @Override public String getType() { return "Standard"; }
-} // сщысsffgfessef
+    @Override public String getType() { return "Suite"; }
+}

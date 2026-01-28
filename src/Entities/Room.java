@@ -51,4 +51,14 @@ public abstract class Room {
 
     public boolean isAvailable() { return isAvailable; }
     public void setAvailable(boolean available) { isAvailable = available; }
+
+    @Override
+    public String toString() {
+        return String.format("Room #%d | Floor: %d | Type: %-10s | Price: $%.2f | Status: %s",
+                roomNumber,
+                floor,
+                getType(),
+                price,
+                isAvailable ? "Available" : "Booked");
+    }
 }

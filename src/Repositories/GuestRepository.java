@@ -44,7 +44,7 @@ public class GuestRepository implements IGuestRepository {
                 System.out.println("Guest saved with ID: " + generatedId);
             }
         } catch (SQLException e) {
-            // We print here because duplicate email is a user error, not necessarily a system crash
+            // We print here because duplicate email is a user error, not necessarily a system crash, so it goes back
             System.out.println("Error saving guest (Email might be duplicate): " + e.getMessage());
         }
     }

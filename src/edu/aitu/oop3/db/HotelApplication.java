@@ -42,12 +42,22 @@ public class HotelApplication {
             int choice = scanner.nextInt();
             try {
                 switch (choice) {
-                    case 1 -> showRooms();
-                    case 2 -> makeReservationSmart(); // <--- NEW SMART FLOW
-                    case 3 -> showReservations();
-                    case 4 -> makePayment();
-                    case 0 -> { return; }
-                    default -> System.out.println("Invalid option.");
+                    case 1:
+                        showRooms();
+                        break;
+                    case 2:
+                        makeReservationSmart();
+                        break;
+                    case 3:
+                        showReservations();
+                        break;
+                    case 4:
+                        makePayment();
+                        break;
+                    case 0:
+                        { return; }
+                    default:
+                        System.out.println("Invalid option.");
                 }
             } catch (Exception e) {
                 System.out.println("Error: " + e.getMessage());
@@ -60,19 +70,22 @@ public class HotelApplication {
         String email = scanner.next();
         Guest guest = guestService.getAndRegisterGuest(email, scanner);
         System.out.print("Enter the Room ID you want to book: ");
-        int roomId = scanner.nextInt();
+        int roomNumber = scanner.nextInt();
         Date date = new Date(System.currentTimeMillis());
         try {
-            reservationService.createReservation(guest.getId(), roomId, date);
+            reservationService.createReservation(guest.getId(), roomNumber, date);
         } catch (ReservationException e) {
             System.out.println("Booking Failed: " + e.getMessage());
         }
     }
 
     private void showRooms() {
-        roomService.getAllRooms().stream()
-                .filter(Room::isAvailable) // Only show free rooms
-                .forEach(System.out::println);
+        System.out.println("--- Available Rooms ---");
+        for (Room room : roomService.getAllRooms()) {
+            if (room.isAvailable()) {
+                System.out.println(room); // This uses the toString() logic
+            }
+        }
     }
 
     private void showReservations() {

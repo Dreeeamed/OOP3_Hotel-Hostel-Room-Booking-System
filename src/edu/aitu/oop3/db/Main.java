@@ -14,25 +14,25 @@ public class Main {
 
             System.out.println("Connected to Database!");
 
-            // 2. PREPARE REPOSITORIES (The "Workers")
+            // 2. PREPARE REPOSITORIES
             RoomRepository roomRepo = new RoomRepository(connection);
             GuestRepository guestRepo = new GuestRepository(connection);
             ReservationRepository resRepo = new ReservationRepository(connection);
             PaymentRepository payRepo = new PaymentRepository(connection);
 
-            // 3. SETUP TABLES (The "Foundation")
+            // 3. SETUP TABLES
             roomRepo.createTable();
             guestRepo.createTable();
             resRepo.createTable();
             payRepo.createTable();
 
-            // 4. PREPARE SERVICES (The "Managers")
+            // 4. PREPARE SERVICES
             RoomService roomService = new RoomService(roomRepo);
             GuestService guestService = new GuestService(guestRepo);
             ReservationService reservationService = new ReservationService(resRepo, roomRepo);
             PaymentService paymentService = new PaymentService(payRepo);
 
-            // 5. START THE APP (The "Menu")
+            // 5. START THE APP
             HotelApplication app = new HotelApplication(roomService, guestService, reservationService, paymentService);
             app.start();
 

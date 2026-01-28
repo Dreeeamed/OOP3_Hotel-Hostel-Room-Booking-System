@@ -39,13 +39,13 @@ public class RoomRepository implements IRoomRepository {
     @Override
     public void addRoom(Room room) {
         String sql = "INSERT INTO rooms (room_number, floor, price, room_type, is_available) VALUES (?, ?, ?, ?, ?)";
-        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-            stmt.setInt(1, room.getRoomNumber());
-            stmt.setInt(2, room.getFloor());
-            stmt.setDouble(3, room.getPrice());
-            stmt.setString(4, room.getType());
-            stmt.setBoolean(5, room.isAvailable());
-            stmt.executeUpdate();
+        try (PreparedStatement value = connection.prepareStatement(sql)) {
+            value.setInt(1, room.getRoomNumber());
+            value.setInt(2, room.getFloor());
+            value.setDouble(3, room.getPrice());
+            value.setString(4, room.getType());
+            value.setBoolean(5, room.isAvailable());
+            value.executeUpdate();
         } catch (SQLException e) {
             throw new DatabaseException("Error adding room: " + room.getRoomNumber(), e);
         }

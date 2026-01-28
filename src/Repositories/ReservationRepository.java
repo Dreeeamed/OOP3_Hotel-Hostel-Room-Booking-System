@@ -40,7 +40,6 @@ public class ReservationRepository implements IReservationRepository {
             stmt.setDate(3, reservation.getCheckInDate());
             stmt.executeUpdate();
         } catch (SQLException e) {
-            // We wrap the SQL exception in your custom runtime exception
             throw new DatabaseException("Failed to create reservation", e);
         }
     }

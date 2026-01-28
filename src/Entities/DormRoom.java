@@ -9,5 +9,5 @@ public class DormRoom extends Room {
         super(id, roomNumber, floor, price, isAvailable);
     }
 
-    @Override public String getType() { return "Standard"; }
+    @Override public String getType() { return "Dorm"; }
 }
