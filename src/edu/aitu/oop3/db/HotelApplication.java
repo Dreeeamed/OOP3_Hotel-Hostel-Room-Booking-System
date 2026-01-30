@@ -3,6 +3,8 @@ package edu.aitu.oop3.db;
 import Services.*;
 import Entities.*;
 import Exceptions.*;
+
+import java.util.List;
 import java.util.Scanner;
 import java.sql.Date;
 
@@ -46,7 +48,7 @@ public class HotelApplication {
                         showRooms();
                         break;
                     case 2:
-                        makeReservationSmart();
+                        makeReservation();
                         break;
                     case 3:
                         showReservations();
@@ -65,7 +67,7 @@ public class HotelApplication {
         }
     }
 
-    private void makeReservationSmart() {
+    private void makeReservation() {
         System.out.print("Enter your Email to start: ");
         String email = scanner.next();
         Guest guest = guestService.getAndRegisterGuest(email, scanner);
@@ -89,7 +91,17 @@ public class HotelApplication {
     }
 
     private void showReservations() {
-        reservationService.getAllReservations().forEach(System.out::println);
+        List<Reservation> reservations = reservationService.getAllReservations();
+
+        if (reservations.isEmpty()) {
+            System.out.println("No reservations found.");
+            return;
+        }
+
+        System.out.println("--- Current Reservations ---");
+        for (Reservation r : reservations) {
+            System.out.println(r);
+        }
     }
 
     private void makePayment() {

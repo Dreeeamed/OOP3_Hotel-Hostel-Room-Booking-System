@@ -3,18 +3,30 @@ package edu.aitu.oop3.db;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
 
 public class DatabaseConnection {
 
-    // Connection details
     private static final String URL = "jdbc:postgresql://aws-1-ap-southeast-2.pooler.supabase.com:5432/postgres?sslmode=require";
     private static final String USER = "postgres.shioqqggimmyjrgjlaof";
+    private static String PASSWORD;
 
-    // MAKE SURE TO PUT YOUR ACTUAL PASSWORD HERE
-    private static final String PASSWORD = "ThisIsBigBlack2000!";
+    static {
+        try {
+            Properties props = new Properties();
+            FileInputStream fis = new FileInputStream("config.properties");
+            props.load(fis);
+            PASSWORD = props.getProperty("DB_PASSWORD");
+        } catch (IOException e) {
+            System.err.println("Database connection could not be loaded");
+            e.printStackTrace();
+        }
+    }
 
     private DatabaseConnection() {
-        // Private constructor to prevent instantiation
+
     }
 
     public static Connection getConnection() throws SQLException {
